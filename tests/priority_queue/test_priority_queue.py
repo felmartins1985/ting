@@ -19,8 +19,6 @@ mock1 = [
     },
 ]
 
-mock = {}
-
 
 def test_basic_priority_queueing():
     pq = PriorityQueue()
