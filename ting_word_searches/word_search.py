@@ -1,7 +1,3 @@
-from ting_file_management.queue import Queue
-from ting_file_management.file_process import process
-
-
 def generate_word_report(word, file, occurrences):
     return {"palavra": word, "arquivo": file, "ocorrencias": occurrences}
 
@@ -25,8 +21,8 @@ def exists_word(word, instance):
         data = instance.search(index)
         lines_search = create_word_report(word, data)
         if len(lines_search) > 0:
-            file_path = data["nome_do_arquivo"]
-            result = generate_word_report(word, file_path, lines_search)
+            file_name = data["nome_do_arquivo"]
+            result = generate_word_report(word, file_name, lines_search)
             show_return_exists.append(result)
     return show_return_exists
 
@@ -38,7 +34,7 @@ def search_by_word(word, instance):
         lines_search = []
         lines_search = create_word_report(word, data, True)
         if len(lines_search) > 0:
-            file_path = data["nome_do_arquivo"]
-            result = generate_word_report(word, file_path, lines_search)
+            file_name = data["nome_do_arquivo"]
+            result = generate_word_report(word, file_name, lines_search)
             show_return_exists.append(result)
     return show_return_exists
